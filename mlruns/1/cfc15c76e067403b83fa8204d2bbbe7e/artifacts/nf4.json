@@ -1,0 +1,181 @@
+{
+  "config": {
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "precision": "nf4",
+    "max_new_tokens": 256,
+    "experiment": "quantbench"
+  },
+  "metrics": {
+    "accuracy_overall": 0.7,
+    "accuracy_reasoning": 0.4,
+    "accuracy_coding": 1.0,
+    "tokens_per_second": 14.587959567415876,
+    "latency_mean_s": 6.231166160004795,
+    "ttft_mean_s": 0.09221110499929637,
+    "peak_memory_mib": 1119.30322265625,
+    "weights_memory_mib": 1125.0908203125,
+    "load_seconds": 8.028792400000384
+  },
+  "records": [
+    {
+      "id": "reason_01",
+      "type": "reasoning",
+      "correct": false,
+      "seconds": 0.2302,
+      "new_tokens": 3,
+      "completion": "18"
+    },
+    {
+      "id": "reason_02",
+      "type": "reasoning",
+      "correct": true,
+      "seconds": 13.1466,
+      "new_tokens": 194,
+      "completion": "To determine the arrival time of the train, we need to add the travel duration (2 hours 35 minutes) to the departure time (09:40).\n\n1. Start with the departure time:\n   - 09:40\n\n2. Add the 2 hours:\n   - 09:40 + 2 hours = 11:40\n\n3. Now, add the remaining 35 minutes to 11:40.\n   - Since there are 60 minutes in an hour, we can break this down as follows:\n     - First, add 30 minutes to 11:40 to get 12:10.\n     - Then, add the remaining 5 minutes to 12:10.\n\nTherefore, the final arrival time is 12:15.\n\nAnswer: 12:15 (in 24-hour format)"
+    },
+    {
+      "id": "reason_03",
+      "type": "reasoning",
+      "correct": true,
+      "seconds": 17.4205,
+      "new_tokens": 246,
+      "completion": "To find the probability that you draw a ball that is not blue, we first need to determine the total number of balls and then calculate the probability based on the given conditions.\n\n1. **Total Number of Balls:**\n   - Red balls = 5\n   - Blue balls = 3\n   - Green balls = 2\n\n   Total number of balls = 5 (red) + 3 (blue) + 2 (green) = 10 balls.\n\n2. **Probability Calculation:**\n\n   The probability of drawing a non-blue ball can be calculated using the formula:\n   \n   \\[\n   P(\\text{not blue}) = \\frac{\\text{Number of non-blue balls}}{\\text{Total number of balls}}\n   \\]\n\n   Here, there are 5 red balls and 2 green balls, so there are \\(5 + 2 = 7\\) non-blue balls.\n\n   Therefore,\n   \n   \\[\n   P(\\text{not blue}) = \\frac{7}{10}\n   \\]\n\nSo, the probability that you draw a ball that is not blue is:\n\n\\[\nP(\\text{not blue}) = 0.7\n\\]"
+    },
+    {
+      "id": "reason_04",
+      "type": "reasoning",
+      "correct": true,
+      "seconds": 0.1956,
+      "new_tokens": 3,
+      "completion": "Yes."
+    },
+    {
+      "id": "reason_05",
+      "type": "reasoning",
+      "correct": false,
+      "seconds": 0.3408,
+      "new_tokens": 5,
+      "completion": "3000"
+    },
+    {
+      "id": "reason_06",
+      "type": "reasoning",
+      "correct": false,
+      "seconds": 0.1407,
+      "new_tokens": 2,
+      "completion": "2"
+    },
+    {
+      "id": "reason_07",
+      "type": "reasoning",
+      "correct": false,
+      "seconds": 0.1291,
+      "new_tokens": 2,
+      "completion": "8"
+    },
+    {
+      "id": "reason_08",
+      "type": "reasoning",
+      "correct": false,
+      "seconds": 0.1382,
+      "new_tokens": 2,
+      "completion": "7"
+    },
+    {
+      "id": "reason_09",
+      "type": "reasoning",
+      "correct": true,
+      "seconds": 5.615,
+      "new_tokens": 94,
+      "completion": "The first run time is at 02:00.\nSince it runs every 6 hours, the second run time will be:\n02:00 + 6 hours = 08:00 (next morning)\nAnd the third run time will be:\n08:00 + 6 hours = 14:00 (noon)\n\nSo, the third run time of the day is **14:00**."
+    },
+    {
+      "id": "reason_10",
+      "type": "reasoning",
+      "correct": false,
+      "seconds": 0.3196,
+      "new_tokens": 4,
+      "completion": "100"
+    },
+    {
+      "id": "code_01",
+      "type": "coding",
+      "correct": true,
+      "seconds": 6.4447,
+      "new_tokens": 88,
+      "completion": "```python\ndef solve(n):\n    total = 0\n    for i in range(2, n+1, 2):  # Start from 2 and increment by 2 each time (to get even numbers)\n        total += i\n    return total\n\n# Example usage:\nprint(solve(10))  # Output: 34 (2 + 4 + 6 + 8)\n```"
+    },
+    {
+      "id": "code_02",
+      "type": "coding",
+      "correct": true,
+      "seconds": 7.8821,
+      "new_tokens": 113,
+      "completion": "```python\ndef solve(s):\n    # Remove all non-alphanumeric characters from the string\n    cleaned_string = ''.join(char.lower() for char in s if char.isalnum())\n    \n    # Check if the cleaned string is equal to its reverse\n    return cleaned_string == cleaned_string[::-1]\n\n# Example usage:\nprint(solve(\"A man, a plan, a canal: Panama\"))  # Should return True\nprint(solve(\"racecar\"))  # Should return True\nprint(solve(\"hello\"))  # Should return False\n```"
+    },
+    {
+      "id": "code_03",
+      "type": "coding",
+      "correct": true,
+      "seconds": 11.7209,
+      "new_tokens": 170,
+      "completion": "```python\ndef solve(nums):\n    # Remove duplicates and sort the list in descending order\n    sorted_unique_nums = sorted(set(nums), reverse=True)\n    \n    # Check if there are at least two unique values\n    if len(sorted_unique_nums) < 2:\n        return None\n    \n    # Return the second largest value\n    return sorted_unique_nums[1]\n\n# Example usage\nnums = [5, 3, 7, 8, 9]\nprint(solve(nums))  # Output: 8\n\nnums = [10, 20, 30, 40, 50]\nprint(solve(nums))  # Output: 30\n\nnums = [1, 1, 1, 1]\nprint(solve(nums))  # Output: None\n```"
+    },
+    {
+      "id": "code_04",
+      "type": "coding",
+      "correct": true,
+      "seconds": 8.0319,
+      "new_tokens": 121,
+      "completion": "```python\ndef solve(scores):\n    # Sort the dictionary items based on score (descending) and name (alphabetically)\n    sorted_items = sorted(scores.items(), key=lambda x: (-x[1], x[0]))\n    \n    # Extract the names from the sorted items\n    sorted_names = [name for name, _ in sorted_items]\n    \n    return sorted_names\n\n# Example usage:\nscores = {\"Alice\": 85, \"Bob\": 92, \"Charlie\": 78}\nprint(solve(scores))  # Output: ['Bob', 'Alice']\n```"
+    },
+    {
+      "id": "code_05",
+      "type": "coding",
+      "correct": true,
+      "seconds": 8.0598,
+      "new_tokens": 129,
+      "completion": "```python\ndef solve(s):\n    char_count = {}\n    for char in s:\n        if char != ' ':\n            if char in char_count:\n                char_count[char] += 1\n            else:\n                char_count[char] = 1\n    return char_count\n\n# Example usage\ns = \"Hello World\"\nresult = solve(s)\nprint(result)  # Output: {'H': 1, 'e': 1, 'l': 3, 'o': 2, ' ': 1, 'W': 1, 'r': 1, 'd': 1}\n```"
+    },
+    {
+      "id": "code_06",
+      "type": "coding",
+      "correct": true,
+      "seconds": 14.7023,
+      "new_tokens": 206,
+      "completion": "```python\ndef solve(nums, target):\n    \"\"\"\n    Finds and returns the indices of two numbers in 'nums' that add up to 'target'.\n    \n    Parameters:\n    - nums (list): A list of integers.\n    - target (int): The target sum.\n\n    Returns:\n    - tuple: A tuple containing the indices of the two numbers that add up to 'target', \n      in ascending index order. Returns None if no such pair exists.\n    \"\"\"\n    num_indices = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in num_indices:\n            return (num_indices[complement], i)\n        num_indices[num] = i\n    return None\n\n# Example usage:\nnums = [2, 7, 11, 15]\ntarget = 9\nprint(solve(nums, target))  # Output should be (0, 1) since nums[0] + nums[1] == 9\n```"
+    },
+    {
+      "id": "code_07",
+      "type": "coding",
+      "correct": true,
+      "seconds": 9.0069,
+      "new_tokens": 134,
+      "completion": "```python\ndef solve(n):\n    if n <= 1:\n        return n\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            c = a + b\n            a, b = b, c\n        return c\n\n# Test cases to verify the correctness of the function\nprint(solve(0))  # Expected output: 0\nprint(solve(1))  # Expected output: 1\nprint(solve(5))  # Expected output: 3\nprint(solve(7))  # Expected output: 8\n```"
+    },
+    {
+      "id": "code_08",
+      "type": "coding",
+      "correct": true,
+      "seconds": 7.4686,
+      "new_tokens": 111,
+      "completion": "```python\ndef solve(rows):\n    total = 0\n    for row in rows:\n        value = row.get('value')\n        if value is not None:\n            total += value\n    return total\n\n# Example usage:\nrows = [\n    {'name': 'row1', 'value': 5},\n    {'name': 'row2', 'value': None},\n    {'name': 'row3', 'value': 10}\n]\n\nresult = solve(rows)\nprint(result)  # Output: 15\n```"
+    },
+    {
+      "id": "code_09",
+      "type": "coding",
+      "correct": true,
+      "seconds": 5.8708,
+      "new_tokens": 77,
+      "completion": "```python\ndef solve(s):\n    words = s.split()\n    max_word = \"\"\n    \n    for word in words:\n        if len(word) > len(max_word):\n            max_word = word\n    \n    return max_word\n\n# Example usage\ns = \"The quick brown fox jumps over the lazy dog\"\nprint(solve(s))  # Output: \"quick\"\n```"
+    },
+    {
+      "id": "code_10",
+      "type": "coding",
+      "correct": true,
+      "seconds": 7.7588,
+      "new_tokens": 114,
+      "completion": "```python\ndef solve(nums):\n    seen = set()\n    result = []\n    for num in nums:\n        if num not in seen:\n            seen.add(num)\n            result.append(num)\n    return result\n\n# Example usage:\nnums = [1, 2, 3, 4, 5, 6, 7, 8, 9]\nprint(solve(nums))  # Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]\n```"
+    }
+  ]
+}

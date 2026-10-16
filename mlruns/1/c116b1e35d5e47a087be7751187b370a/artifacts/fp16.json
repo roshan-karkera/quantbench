@@ -1,0 +1,181 @@
+{
+  "config": {
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "precision": "fp16",
+    "max_new_tokens": 256,
+    "experiment": "quantbench"
+  },
+  "metrics": {
+    "accuracy_overall": 0.45,
+    "accuracy_reasoning": 0.1,
+    "accuracy_coding": 0.8,
+    "tokens_per_second": 15.8639316281355,
+    "latency_mean_s": 8.698978490001172,
+    "ttft_mean_s": 0.07864383499982068,
+    "peak_memory_mib": 2964.3447265625,
+    "weights_memory_mib": 2944.40234375,
+    "load_seconds": 103.85354909999296
+  },
+  "records": [
+    {
+      "id": "reason_01",
+      "type": "reasoning",
+      "correct": false,
+      "seconds": 0.207,
+      "new_tokens": 3,
+      "completion": "18"
+    },
+    {
+      "id": "reason_02",
+      "type": "reasoning",
+      "correct": false,
+      "seconds": 15.0482,
+      "new_tokens": 242,
+      "completion": "To determine the arrival time of the train, we need to add the duration of the journey (2 hours 35 minutes) to the departure time (09:40).\n\n1. **Start with the departure time:**\n   - 09:40\n\n2. **Add the hours:**\n   - Hours: \\(0 + 2 = 2\\)\n   - Minutes: \\(40 + 35 = 75\\)\n\n3. **Check if there is a carry-over for minutes:**\n   - Since 75 exceeds 60, we need to convert 75 minutes into hours.\n   - \\(75 \\div 60 = 1\\) remainder \\(15\\)\n   - So, 75 minutes is equivalent to 1 hour and 15 minutes.\n\n4. **Combine the hours and minutes:**\n   - Total hours: \\(2 + 1 = 3\\)\n   - Total minutes: \\(15\\)\n\nTherefore, the arrival time is:\n- 13:15\n\nSo, the train arrives at 13:15 or 1:15 PM."
+    },
+    {
+      "id": "reason_03",
+      "type": "reasoning",
+      "correct": false,
+      "seconds": 15.4316,
+      "new_tokens": 256,
+      "completion": "To find the probability that the ball drawn is not blue, we first need to determine the total number of balls and then calculate the probability based on the given conditions.\n\n1. **Total Number of Balls:**\n   - Red balls: 5\n   - Blue balls: 3\n   - Green balls: 2\n\n   Total number of balls = 5 (red) + 3 (blue) + 2 (green) = 10 balls\n\n2. **Number of Non-Blue Balls:**\n   Since there are 3 blue balls, the number of non-blue balls is:\n   \\[\n   10 \\text{ (total balls)} - 3 \\text{ (blue balls)} = 7 \\text{ (non-blue balls)}\n   \\]\n\n3. **Probability Calculation:**\n   The probability \\( P \\) of drawing a non-blue ball is the ratio of the number of non-blue balls to the total number of balls.\n   \\[\n   P(\\text{not blue}) = \\frac{\\text{number of non-blue balls}}{\\text{total number of balls}} = \\frac{7}{10}\n   \\]\n\n4. **Convert to Decimal:**\n   To express this probability as a"
+    },
+    {
+      "id": "reason_04",
+      "type": "reasoning",
+      "correct": true,
+      "seconds": 0.2149,
+      "new_tokens": 3,
+      "completion": "Yes."
+    },
+    {
+      "id": "reason_05",
+      "type": "reasoning",
+      "correct": false,
+      "seconds": 0.3064,
+      "new_tokens": 5,
+      "completion": "3600"
+    },
+    {
+      "id": "reason_06",
+      "type": "reasoning",
+      "correct": false,
+      "seconds": 0.1447,
+      "new_tokens": 2,
+      "completion": "7"
+    },
+    {
+      "id": "reason_07",
+      "type": "reasoning",
+      "correct": false,
+      "seconds": 0.307,
+      "new_tokens": 4,
+      "completion": "256"
+    },
+    {
+      "id": "reason_08",
+      "type": "reasoning",
+      "correct": false,
+      "seconds": 1.1992,
+      "new_tokens": 17,
+      "completion": "3, 7, 11, 12, 19"
+    },
+    {
+      "id": "reason_09",
+      "type": "reasoning",
+      "correct": false,
+      "seconds": 6.6112,
+      "new_tokens": 112,
+      "completion": "The first run time of the day is 02:00.\nSince it runs every 6 hours, we can calculate the second and third run times as follows:\nSecond run time = First run time + 6 hours = 08:00 (02:00 + 6 hours)\nThird run time = Second run time + 6 hours = 14:00 (08:00 + 6 hours)\n\nTherefore, the third run time of the day is **14:00**."
+    },
+    {
+      "id": "reason_10",
+      "type": "reasoning",
+      "correct": false,
+      "seconds": 0.26,
+      "new_tokens": 4,
+      "completion": "100"
+    },
+    {
+      "id": "code_01",
+      "type": "coding",
+      "correct": true,
+      "seconds": 8.2861,
+      "new_tokens": 125,
+      "completion": "```python\ndef solve(n):\n    \"\"\"\n    This function calculates the sum of all even numbers from 1 to n inclusive.\n    \n    Parameters:\n    n (int): The upper limit of the range.\n    \n    Returns:\n    int: The sum of all even numbers from 1 to n inclusive.\n    \"\"\"\n    return sum(i for i in range(2, n+1, 2))\n```\n\nThis solution uses a generator expression within the `sum` function to iterate over every second number starting from 2 up to and including `n`, effectively summing all even numbers in the specified range."
+    },
+    {
+      "id": "code_02",
+      "type": "coding",
+      "correct": true,
+      "seconds": 9.1899,
+      "new_tokens": 136,
+      "completion": "```python\ndef solve(s):\n    # Remove non-alphanumeric characters and convert to lowercase\n    cleaned_s = ''.join(char.lower() for char in s if char.isalnum())\n    \n    # Check if the cleaned string is equal to its reverse\n    return cleaned_s == cleaned_s[::-1]\n```\n\nThis function first cleans the input string `s` by removing any non-alphanumeric characters and converting all letters to lowercase. Then it checks if this cleaned string is equal to its reverse (using slicing with `[::-1]`). If they are equal, the function returns `True`, indicating that the original string was a palindrome; otherwise, it returns `False`."
+    },
+    {
+      "id": "code_03",
+      "type": "coding",
+      "correct": true,
+      "seconds": 15.8968,
+      "new_tokens": 256,
+      "completion": "```python\ndef solve(nums):\n    \"\"\"\n    Finds and returns the second largest distinct value in the given list of integers.\n    \n    Parameters:\n    nums (list): A list of integers.\n    \n    Returns:\n    int: The second largest distinct integer in the list, or None if not applicable.\n    \"\"\"\n    # Remove duplicates to ensure we're comparing unique values\n    unique_nums = sorted(set(nums), reverse=True)\n    \n    # Check if there's at least two unique numbers\n    if len(unique_nums) < 2:\n        return None\n    \n    # Return the second element in the sorted set\n    return unique_nums[1]\n```\n\nThis solution works as follows:\n\n1. We first convert the input list `nums` into a set to remove any duplicate values, ensuring that our comparison focuses on unique elements.\n\n2. We then sort this set in descending order to get the largest numbers first.\n\n3. If the length of the sorted set is less than 2, it means there are fewer than two unique numbers, so we return `None`.\n\n4. Otherwise, we simply return the second element from the sorted set, which corresponds to the second largest number in the original list.\n\n5. This approach ensures that we correctly identify and return the second"
+    },
+    {
+      "id": "code_04",
+      "type": "coding",
+      "correct": true,
+      "seconds": 16.7207,
+      "new_tokens": 256,
+      "completion": "```python\ndef solve(d):\n    \"\"\"\n    Sorts a dictionary of names to scores in descending order of scores,\n    breaking ties alphabetically.\n\n    Parameters:\n    d (dict): A dictionary where keys are names and values are scores.\n\n    Returns:\n    list: A list of names sorted by their scores in descending order.\n         Ties are broken alphabetically.\n    \"\"\"\n    # Convert the dictionary into a list of tuples for sorting\n    items = [(name, score) for name, score in d.items()]\n    \n    # Sort the list first by score in descending order, then by name alphabetically\n    sorted_items = sorted(items, key=lambda x: (-x[1], x[0]))\n    \n    # Extract the names from the sorted list of tuples\n    sorted_names = [name for name, _ in sorted_items]\n    \n    return sorted_names\n\n# Example usage:\nscores_dict = {\"Alice\": 95, \"Bob\": 87, \"Charlie\": 92, \"David\": 87}\nsorted_names = solve(scores_dict)\nprint(sorted_names)  # Output should be ['Alice', 'Charlie', 'David']\n```\n\nThis solution defines a `solve` function that sorts a given dictionary of names and"
+    },
+    {
+      "id": "code_05",
+      "type": "coding",
+      "correct": true,
+      "seconds": 14.0792,
+      "new_tokens": 220,
+      "completion": "```python\ndef solve(s):\n    \"\"\"\n    Returns a dictionary with characters from string `s` as keys and their counts as values,\n    ignoring spaces.\n\n    Parameters:\n    s (str): The input string to analyze.\n\n    Returns:\n    dict: A dictionary where keys are unique characters from `s`, excluding spaces, and values are their respective counts.\n    \"\"\"\n    # Remove spaces from the string\n    cleaned_string = s.replace(\" \", \"\")\n    \n    # Initialize an empty dictionary to store character counts\n    char_count = {}\n    \n    # Iterate through each character in the cleaned string\n    for char in cleaned_string:\n        if char in char_count:\n            char_count[char] += 1\n        else:\n            char_count[char] = 1\n    \n    return char_count\n\n# Example usage:\nprint(solve(\"hello world\"))  # Output: {'h': 1, 'e': 1, 'l': 3, 'o': 2, 'w': 1, 'r': 1, 'd': 1}\n```"
+    },
+    {
+      "id": "code_06",
+      "type": "coding",
+      "correct": false,
+      "seconds": 16.1627,
+      "new_tokens": 256,
+      "completion": "```python\ndef solve(nums, target):\n    \"\"\"\n    Finds and returns the indices of the two numbers in 'nums' that add up to 'target'.\n    \n    Parameters:\n        nums (List[int]): A list of integers.\n        target (int): The target sum for which two numbers should add up to.\n        \n    Returns:\n        Tuple[int, int] or None: A tuple containing the indices of the two numbers if found,\n                                 otherwise None.\n    \"\"\"\n    num_to_index = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in num_to_index:\n            return (num_to_index[complement], i)\n        num_to_index[num] = i\n    return None\n\n# Check function with provided data points\nprint(solve([2, 7, 11, 15], 9))  # Expected output: (0, 1)\nprint(solve([3, 2, 4], 6))       # Expected output: (1, 2)\nprint(solve([3, 3], 6))          # Expected output: (0, 1)\nprint(solve([1, 2, 3], 7))       # Expected"
+    },
+    {
+      "id": "code_07",
+      "type": "coding",
+      "correct": true,
+      "seconds": 9.0072,
+      "new_tokens": 143,
+      "completion": "```python\ndef solve(n):\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        a, b = 0, 1\n        for _ in range(2, n + 1):\n            a, b = b, a + b\n        return b\n\n# Test cases to verify the correctness of the function\nprint(solve(0))   # Expected output: 0\nprint(solve(1))   # Expected output: 1\nprint(solve(5))   # Expected output: 5\nprint(solve(8))   # Expected output: 21\n```"
+    },
+    {
+      "id": "code_08",
+      "type": "coding",
+      "correct": true,
+      "seconds": 15.1595,
+      "new_tokens": 254,
+      "completion": "```python\ndef solve(rows):\n    \"\"\"\n    This function takes a list of dictionaries, each containing keys 'name' and 'value',\n    and returns the sum of values for rows where 'value' is not None.\n    \n    :param rows: List of dictionaries to be processed.\n    :return: Sum of non-None 'value' from all valid rows.\n    \"\"\"\n    total_sum = 0\n    for row in rows:\n        if row.get('value') is not None:\n            total_sum += row['value']\n    return total_sum\n\n# Example usage:\nrows_example = [\n    {'name': 'Alice', 'value': 10},\n    {'name': 'Bob', 'value': None},\n    {'name': 'Charlie', 'value': 5}\n]\n\nprint(solve(rows_example))  # Output should be 15 (10 + 5)\n```\n\nThis solution defines a `solve` function that iterates over each dictionary in the provided list (`rows`). It checks if the value associated with the key `'value'` is not `None`. If it's not `None`, the corresponding value is added to the running total (`total_sum`). Finally, the function returns the accumulated sum."
+    },
+    {
+      "id": "code_09",
+      "type": "coding",
+      "correct": true,
+      "seconds": 13.5897,
+      "new_tokens": 210,
+      "completion": "```python\ndef solve(s):\n    # Split the input string into words based on spaces\n    words = s.split()\n    \n    # Initialize variables to keep track of the maximum length and the corresponding word\n    max_length = 0\n    result_word = \"\"\n    \n    # Iterate through each word in the list\n    for word in words:\n        # Update the maximum length if the current word is longer than the previous one\n        if len(word) > max_length:\n            max_length = len(word)\n            result_word = word\n    \n    return result_word\n\n# Example usage:\ninput_string = \"The quick brown fox jumps over the lazy dog\"\nprint(solve(input_string))  # Output: \"jumps\"\n```\n\nThis function `solve` takes a single argument `s`, which is a string containing multiple words separated by spaces. It then splits this string into individual words, iterates through them to find the longest word (breaking ties by selecting the first occurrence), and finally returns this longest word as a string."
+    },
+    {
+      "id": "code_10",
+      "type": "coding",
+      "correct": false,
+      "seconds": 16.1577,
+      "new_tokens": 256,
+      "completion": "```python\ndef solve(nums):\n    \"\"\"\n    Removes duplicate elements from nums while preserving the original order.\n    \n    Parameters:\n    nums (list): A list of integers which may contain duplicates.\n    \n    Returns:\n    list: A new list containing only the unique elements from nums, in their original order.\n    \"\"\"\n    seen = set()\n    result = []\n    for num in nums:\n        if num not in seen:\n            seen.add(num)\n            result.append(num)\n    return result\n\n# Example usage and verification\nif __name__ == \"__main__\":\n    test_cases = [\n        ([1, 2, 3, 4], [1, 2, 3, 4]),\n        ([1, 1, 2, 2, 3, 3, 4], [1, 2, 3, 4]),\n        ([5, 6, 7, 8, 9, 10], [5, 6, 7, 8, 9, 10])\n    ]\n    \n    for input_list, expected_output in test_cases:\n        assert solve(input_list) == expected_output, f\"Test failed for input {input_list}. Expected {expected_output},"
+    }
+  ]
+}

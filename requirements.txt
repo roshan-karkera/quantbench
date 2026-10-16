@@ -1,0 +1,7 @@
+torch
+transformers>=4.44
+accelerate
+bitsandbytes>=0.43
+mlflow
+matplotlib
+sentencepiece
